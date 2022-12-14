@@ -1,4 +1,5 @@
 import { Component } from 'react/cjs/react.development.js';
+import PropTypes from 'prop-types';
 import './charInfo.scss';
 import Spinner from '../spinner/Spinner.js';
 import ErrorMessage from '../errorMessage/ErrorMessage.js';
@@ -108,6 +109,10 @@ const View = ({ char }) => {
       </ul>
     </>
   );
+};
+
+CharInfo.propTypes = {
+  charId: PropTypes.number,
 };
 
 export default CharInfo;
