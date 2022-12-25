@@ -13,7 +13,7 @@ class RandomChar extends Component {
     error: false,
   };
 
-  marvelService = new MarvelService();
+  marvelService = new MarvelService(); // TODO: с какого типа полями должен быть класс, чтобы ты могла вызывать методы прямо у класса, а не у его экземпляра?
 
   componentDidMount() {
     this.updateChar();

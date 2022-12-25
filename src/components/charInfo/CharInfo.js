@@ -16,7 +16,7 @@ class CharInfo extends Component {
   marvelService = new MarvelService();
 
   componentDidMount() {
-    this.updateChar();
+    this.updateChar(); //
   }
 
   componentDidUpdate(prevProps) {
@@ -53,7 +53,7 @@ class CharInfo extends Component {
 
     const skeleton = char || loading || error ? null : <Skeleton />;
     const errorMessage = error ? <ErrorMessage /> : null;
-    const spinner = loading ? <Spinner /> : null;
+    const spinner = loading && <Spinner />; // TODO: обычно более читабельно писать через && || если второй аргумент в тернарнике null, и в принципе возвращать null плохая практика, когда-то на меня Витя за это ругался)
     const content = !(loading || error || !char) ? <View char={char} /> : null;
 
     return (
@@ -78,7 +78,6 @@ const View = ({ char }) => {
 
   return (
     <>
-      {' '}
       <div className='char__basics'>
         <img src={thumbnail} alt={name} style={imgStyle} />
         <div>
@@ -96,8 +95,10 @@ const View = ({ char }) => {
       <div className='char__descr'>{description}</div>
       <div className='char__comics'>Comics:</div>
       <ul className='char__comics-list'>
+        {/* TODO: здесь можно переписать на && */}
         {comics.length > 0 ? null : 'There is no comics with this character'}
         {comics.map((item, i) => {
+          // TODO:  чтоб eslint не ругался можно сначала отфильтровать, а потом уже все отрисовывать)
           // eslint-disable-next-line
           if (i > 9) return;
           return (

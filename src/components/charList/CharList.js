@@ -24,7 +24,7 @@ class CharList extends Component {
   onRequest = (offset) => {
     this.onCharListLoading();
     this.marvelService
-      .getAllCharacters(offset)
+      .getAllCharacters(offset) // TODO: какая альтернатива дожидания оссинхронных запросов, (не then catch)
       .then(this.onCharListLoaded)
       .catch(this.onError);
   };
