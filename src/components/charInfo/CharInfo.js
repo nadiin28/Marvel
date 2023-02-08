@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react/cjs/react.development.js';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './charInfo.scss';
 import Spinner from '../spinner/Spinner.js';
